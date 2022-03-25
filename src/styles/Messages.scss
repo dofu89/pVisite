@@ -1,0 +1,49 @@
+@import '../styles/config.scss';
+
+.messages {
+  display: flex;
+  margin-right: 10px;
+  width: 99%;
+  position: relative;
+  overflow-wrap: break-word;
+  h4 {
+    border-right: 1px solid $main-color;
+    width: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .messages-info {
+    background: $main-color-light;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 15px;
+    width: fit-content;
+    margin-bottom: 30px;
+    .name {
+      display: block;
+      position: absolute;
+      top: 0;
+      font-size: small;
+      font-weight: 700;
+      background: $main-color-light;
+      border-radius: 5px;
+      padding: 2px;
+    }
+    .messages-datum {
+      position: absolute;
+      font-size: small;
+      font-weight: 700;
+      background: $main-color-light;
+      border-radius: 5px;
+      padding: 2px;
+      bottom: 10px;
+    }
+    .messages-msg {
+      color: wheat;
+      //padding: 50px;
+      //min-width: 150px;
+    }
+  }
+}

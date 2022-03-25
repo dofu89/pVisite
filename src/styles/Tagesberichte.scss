@@ -1,0 +1,117 @@
+@import '../styles/config.scss';
+
+.tagesberichte {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 5px;
+  background: #f0f4fb;
+  border-radius: 10px;
+  padding: 10px;
+  h1 {
+    //color: $main-color;
+  }
+}
+
+.tagesberichte-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex: 1;
+  border-radius: 10px;
+}
+
+.new-info {
+  height: 150px;
+  background: #f0f4fb;
+  margin-top: 10px;
+  border: 1px solid $main-color-light;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 7px;
+  .new-info-header {
+    text-align: center;
+    padding: 10px;
+    background: $main-color-header;
+    border-radius: 10px 10px 0 0;
+  }
+  .new-info-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    form {
+      width: 90%;
+      div {
+        display: flex;
+        padding: 5px;
+        input {
+          width: 40%;
+          height: 30px;
+          border: 1px solid $main-color;
+          font-size: 16px;
+          &:focus {
+            border: 1px solid $main-color-header;
+            outline: none;
+          }
+        }
+        p {
+          width: 150px;
+        }
+        .textarea {
+          width: 88%;
+          height: 50px;
+        }
+      }
+    }
+    button {
+      padding: 30px;
+      border-radius: 10px;
+      background: $main-color-light;
+      color: white;
+      &:hover {
+        background: $main-color-header;
+      }
+    }
+  }
+}
+
+.all-info {
+  height: 550px;
+  background: #f0f4fb;
+  width: 100%;
+  overflow-y: scroll;
+  border: 1px solid $main-color-light;
+  border-radius: 10px;
+  //padding: 10px;
+  position: relative;
+  .all-info-header {
+    text-align: center;
+    padding: 10px;
+    background: $main-color-header;
+    border-radius: 10px 0px 0 0;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+  }
+}
+
+.suggestions {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 30px;
+  left: 155px;
+  .suggestions-list {
+    cursor: pointer;
+    background: white;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    &:hover {
+      background: lightgray;
+    }
+  }
+}

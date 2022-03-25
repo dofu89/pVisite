@@ -1,0 +1,21 @@
+@import '../styles/config.scss';
+
+.navbar {
+  display: flex;
+  margin-left: 30px;
+  button {
+    margin-right: 30px;
+    &:hover {
+      background: $main-color;
+    }
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.active {
+  background: $main-color-light !important;
+  transition: 250ms ease-in-out;
+}
