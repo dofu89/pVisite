@@ -8,7 +8,7 @@
   overflow-wrap: break-word;
   h4 {
     border-right: 1px solid $main-color;
-    width: 10px;
+    width: 'fit-content';
     margin-right: 10px;
     padding: 10px;
     height: auto;
@@ -44,6 +44,19 @@
       color: wheat;
       //padding: 50px;
       //min-width: 150px;
+    }
+  }
+}
+
+.messages-sender {
+  //flex-direction: row-reverse;
+  .messages-info {
+    background: $main-color;
+    .name {
+      background: $main-color;
+    }
+    .messages-datum {
+      background: $main-color;
     }
   }
 }

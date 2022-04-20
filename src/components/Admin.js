@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import { setUserId } from '../features/User/userSlice'
 import aos from 'aos'
 import 'aos/dist/aos.css'
+import { Temporal } from '@js-temporal/polyfill'
 
 const Admin = () => {
   const [name, setName] = useState('')
@@ -16,6 +17,7 @@ const Admin = () => {
   const [patientVorname, setpatientVorname] = useState('')
   const [admin, setAdmin] = useState(false)
   const dispatch = useDispatch()
+  const [todayUser] = useState(Temporal.Now.plainDateISO().toString())
 
   useEffect(() => {
     aos.init({
@@ -33,11 +35,21 @@ const Admin = () => {
             displayName: name,
             photoURL: admin ? 'admin' : null,
           })
+          db.collection('buch')
+            .doc('5AVtPBqxsxKCGTxU2S7F')
+            .collection('users')
+            .doc(auth.user.uid)
+            .collection('stunden')
+            .doc('today')
+            .set({
+              today: todayUser,
+            })
           setName('')
           setEmail('')
           setPassword('')
         }
         dispatch(setUserId({ userId: auth.user.uid }))
+
         db.collection('buch')
           .doc('5AVtPBqxsxKCGTxU2S7F')
           .collection('users')

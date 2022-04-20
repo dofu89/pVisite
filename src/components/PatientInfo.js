@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { messagesBase, setMessages } from '../features/User/userSlice'
-import { db } from '../firebase'
+import React from 'react'
 import '../styles/PatientInfo.scss'
+import { authUser } from '../features/User/userSlice'
+import { useSelector } from 'react-redux'
 
 const PatientInfo = ({ name, message, datum, patient }) => {
-  const dispatch = useDispatch()
-  const messages = useSelector(messagesBase)
-
-  useEffect(() => {}, [])
+  const user = useSelector(authUser)
 
   return (
-    <div className='patient'>
+    <div className={`patient ${name === user.displayName && 'patient-sender'}`}>
       <h4>{patient}</h4>
       <div className='patient-info'>
         <p className='name'>{name}</p>

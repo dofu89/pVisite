@@ -76,7 +76,7 @@ const Tagesberichte = () => {
 
   const onChangeHandler = (patient) => {
     let matches = []
-    if (patient.length > 1) {
+    if (patient.length > 0) {
       matches = patNamen.filter((pat) => {
         const regex = new RegExp(`${patient}`, 'gi')
         return pat.name.match(regex)

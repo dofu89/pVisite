@@ -46,3 +46,16 @@
     }
   }
 }
+
+.patient-sender {
+  //flex-direction: row-reverse;
+  .patient-info {
+    background: $main-color;
+    .name {
+      background: $main-color;
+    }
+    .patient-datum {
+      background: $main-color;
+    }
+  }
+}

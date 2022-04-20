@@ -134,6 +134,7 @@ const Hinweise = () => {
               name={msg.name}
               message={msg.message}
               datum={msg.dateAndTime}
+              desc={msg.desc}
             />
           ))}
           <Button

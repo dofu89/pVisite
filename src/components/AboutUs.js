@@ -12,7 +12,15 @@ const AboutUs = () => {
 
   return (
     <div data-aos='fade-in' className='about'>
-      AboutUs
+      <div className='paragraph'>
+        <p>
+          Etwas uber uns Etwas uber uns Etwas uber uns Etwas uber uns Etwas uber
+          uns Etwas uber uns Etwas uber uns Etwas uber uns Etwas uber uns Etwas
+          uber uns Etwas uber uns Etwas uber uns Etwas uber uns Etwas uber uns
+          Etwas uber uns Etwas uber uns Etwas uber uns Etwas uber uns Etwas uber
+          uns Etwas uber uns Etwas uber uns Etwas uber uns
+        </p>
+      </div>
     </div>
   )
 }
