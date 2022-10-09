@@ -18,12 +18,12 @@ In the project directory:
 ### username: admin,
 ### password: admin123
 
-### [Test Deployed App](https://pvisite-e5e08.web.app/)
-
 Admin support:
 
 - Create new employee account
 - Create and add client in 'client list'
+
+### [Test Deployed App](https://pvisite-e5e08.web.app/)
 
 ## Build with:
 
