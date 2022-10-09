@@ -15,7 +15,7 @@ In the project directory:
 
 ## Test User:
 
-### username: admin,
+### username: admin
 ### password: admin123
 
 Admin support:
