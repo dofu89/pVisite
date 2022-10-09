@@ -19,6 +19,7 @@ const Stunden = ({ todayUserTime, localSaved, fetchingData }) => {
   const user = useSelector(authUser)
 
   useEffect(() => {
+    setFetching(true)
     const getStartTime = async () => {
       if (localSaved === todayUserTime) {
         await db
@@ -29,19 +30,15 @@ const Stunden = ({ todayUserTime, localSaved, fetchingData }) => {
           .collection('stunden')
           .doc('start')
           .get()
-          .then(
-            (val) => setStart(val.data().start),
-            setTimeout(() => {
-              setFetching(fetchingData)
-            }, 500)
-          )
+          .then((val) => setStart(val.data().start))
       }
     }
-
     getStartTime()
+    return () => setFetching(false)
   }, [localSaved])
 
   useEffect(() => {
+    setFetching(true)
     const getStopTime = async () => {
       if (localSaved === todayUserTime) {
         await db
@@ -60,8 +57,8 @@ const Stunden = ({ todayUserTime, localSaved, fetchingData }) => {
           )
       }
     }
-
     getStopTime()
+    return () => setFetching(false)
   }, [localSaved])
 
   setTimeout(() => {
@@ -105,14 +102,6 @@ const Stunden = ({ todayUserTime, localSaved, fetchingData }) => {
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         dateAndTime: date,
       })
-
-    /*setTimeout(() => {
-      db.collection('buch')
-        .doc('5AVtPBqxsxKCGTxU2S7F')
-        .collection('stunden')
-        .doc('sati')
-        .delete()
-    }, 10000)*/
   }
 
   const checkStart = start !== 'START'

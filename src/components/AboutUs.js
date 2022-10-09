@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import '../styles/AboutUs.scss'
 import aos from 'aos'
 import 'aos/dist/aos.css'
+import { Outlet } from 'react-router'
+import Hero from './Hero'
+import NavBar from './NavBar'
 
 const AboutUs = () => {
   useEffect(() => {

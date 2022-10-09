@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/NavBar.scss'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Button } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { activeNavMenu, authUser, setActive } from '../features/User/userSlice'
@@ -16,14 +16,14 @@ const NavBar = () => {
         className={active === 'login' && 'active'}
         onClick={() => dispatch(setActive({ navMenu: 'login' }))}
       >
-        <Link to={'login'}>{user ? 'Logout' : 'Login'}</Link>
+        <NavLink to={'login'}>{user ? 'Logout' : 'Login'}</NavLink>
       </Button>
       {user && (
         <Button
           className={active === 'berichte' && 'active'}
           onClick={() => dispatch(setActive({ navMenu: 'berichte' }))}
         >
-          <Link to={'berichte'}>Tagesberichte</Link>
+          <NavLink to={'berichte'}>Tagesberichte</NavLink>
         </Button>
       )}
       {user && (
@@ -31,7 +31,7 @@ const NavBar = () => {
           className={active === 'hinweise' && 'active'}
           onClick={() => dispatch(setActive({ navMenu: 'hinweise' }))}
         >
-          <Link to={'hinweise'}>Hinweise</Link>
+          <NavLink to={'hinweise'}>Hinweise</NavLink>
         </Button>
       )}
       {user?.photoURL === 'admin' && (
@@ -39,7 +39,7 @@ const NavBar = () => {
           className={active === 'admin' && 'active'}
           onClick={() => dispatch(setActive({ navMenu: 'admin' }))}
         >
-          <Link to={'admin'}>Admin</Link>
+          <NavLink to={'admin'}>Admin</NavLink>
         </Button>
       )}
     </div>

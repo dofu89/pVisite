@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.scss'
-import Hero from './components/Hero'
-import NavBar from './components/NavBar'
 import Login from './components/Login'
 import Tagesberichte from './components/Tagesberichte'
 import Hinweise from './components/Hinweise'
@@ -14,6 +12,7 @@ import { createBrowserHistory } from 'history'
 import AboutUs from './components/AboutUs'
 import aos from 'aos'
 import 'aos/dist/aos.css'
+import SharedLayout from './components/SharedLayout'
 
 function App() {
   const dispatch = useDispatch()
@@ -37,6 +36,17 @@ function App() {
       <div className='app-main'>
         <Router>
           <Routes>
+            <Route path='/' element={<SharedLayout />}>
+              <Route index element={<AboutUs />} />
+              <Route path='login' element={<Login />} />
+              <Route path='berichte' element={<Tagesberichte />} />
+              <Route path='hinweise' element={<Hinweise />} />
+              <Route path='admin' element={<Admin />} />
+              <Route path='*' element={<AboutUs />} />
+            </Route>
+          </Routes>
+        </Router>
+        {/*<Routes>
             <Route path='*' element={<Hero />} />
           </Routes>
           <Routes>
@@ -52,8 +62,7 @@ function App() {
           </Routes>
           <Routes>
             <Route index exact element={<AboutUs />} />
-          </Routes>
-        </Router>
+            </Routes>*/}
       </div>
     </div>
   )

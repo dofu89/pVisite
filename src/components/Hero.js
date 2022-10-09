@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/Hero.scss'
 import logo from '../images/logo.png'
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { authUser, setActive } from '../features/User/userSlice'
 import { Temporal } from '@js-temporal/polyfill'

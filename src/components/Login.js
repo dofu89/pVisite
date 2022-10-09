@@ -9,6 +9,7 @@ import aos from 'aos'
 import 'aos/dist/aos.css'
 import { Temporal } from '@js-temporal/polyfill'
 import firebase from 'firebase/compat/app'
+import { useNavigate } from 'react-router-dom'
 
 import CircularProgress from '@mui/material/CircularProgress'
 import Box from '@mui/material/Box'
@@ -20,6 +21,7 @@ const NavBar = () => {
   const [password, setPassword] = useState('')
   const [todayUser] = useState(Temporal.Now.plainDateISO().toString())
   const [fetching, setFetching] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     aos.init({
@@ -41,16 +43,13 @@ const NavBar = () => {
 
       if (localStorage.getItem('today') === todayUser) {
         setFetching(false)
-      } else {
-        setTimeout(() => {
-          setFetching(false)
-        }, 1500)
       }
     }
+
     getDateFromDB()
   }, [])
 
-  const login = (e) => {
+  function login(e) {
     e.preventDefault()
     auth
       .setPersistence(firebase.auth.Auth.Persistence.SESSION)
@@ -58,51 +57,53 @@ const NavBar = () => {
         return auth.signInWithEmailAndPassword(`${email}@visite.de`, password)
       })
       .then(async (auth) => {
-        if (auth) {
-          await db
-            .collection('buch')
-            .doc('5AVtPBqxsxKCGTxU2S7F')
-            .collection('users')
-            .doc(auth.user.uid)
-            .collection('stunden')
-            .doc('today')
-            .get()
-            .then((val) => localStorage.setItem('today', val.data().today))
-        }
-        dispatch(setUser({ user: auth.user }))
+        await db
+          .collection('buch')
+          .doc('5AVtPBqxsxKCGTxU2S7F')
+          .collection('users')
+          .doc(auth.user.uid)
+          .collection('stunden')
+          .doc('today')
+          .get()
+          .then((val) => localStorage.setItem('today', val.data().today))
+
+        const loggedUser = auth.user
+        dispatch(setUser({ user: loggedUser }))
         setEmail('')
         setPassword('')
 
-        setFetching(false)
-
-        return auth
+        return loggedUser
       })
-      .then(async (auth) => {
+      .then(async (loggedUser) => {
         if (localStorage.getItem('today') !== todayUser) {
           localStorage.setItem('today', todayUser)
           await db
             .collection('buch')
             .doc('5AVtPBqxsxKCGTxU2S7F')
             .collection('users')
-            .doc(auth.user.uid)
+            .doc(loggedUser?.uid)
             .collection('stunden')
             .doc('start')
-            .delete()
+            .set({
+              start: 'START',
+            })
 
           await db
             .collection('buch')
             .doc('5AVtPBqxsxKCGTxU2S7F')
             .collection('users')
-            .doc(auth.user.uid)
+            .doc(loggedUser?.uid)
             .collection('stunden')
             .doc('stop')
-            .delete()
+            .set({
+              stop: 'STOP',
+            })
 
           await db
             .collection('buch')
             .doc('5AVtPBqxsxKCGTxU2S7F')
             .collection('users')
-            .doc(auth.user.uid)
+            .doc(loggedUser?.uid)
             .collection('stunden')
             .doc('today')
             .set({
@@ -110,11 +111,13 @@ const NavBar = () => {
             })
           console.log('novi dan')
           console.log('Lokal novi', localStorage.getItem('today'))
-
           setFetching(false)
         }
-        return auth
       })
+      .catch((err) => console.log('Error: ', err))
+    setTimeout(() => {
+      setFetching(false)
+    }, 500)
   }
 
   const logout = (e) => {
