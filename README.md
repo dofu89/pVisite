@@ -32,6 +32,7 @@ Admin support:
 - Redux
 - react-router-dom: 6,
 - firebase
+- firebase auth
 
 ### The app is in unfinished state. Things to be done:
 
