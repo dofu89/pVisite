@@ -107,8 +107,6 @@ const Stunden = ({ todayUserTime, localSaved, fetchingData }) => {
   const checkStart = start !== 'START'
   const checkStop = stop !== 'STOP' || start === 'START'
 
-  console.log('danas', localSaved)
-
   return (
     <div className='stunden'>
       {fetching ? (

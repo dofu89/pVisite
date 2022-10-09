@@ -109,8 +109,6 @@ const NavBar = () => {
             .set({
               today: todayUser,
             })
-          console.log('novi dan')
-          console.log('Lokal novi', localStorage.getItem('today'))
           setFetching(false)
         }
       })
