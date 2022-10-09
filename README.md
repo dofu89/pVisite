@@ -1,6 +1,7 @@
 # App for internal employees communication and updating clients status:
 
-Instant messaging app which support public and private communication between employees
+- Instant messaging app which support public and private communication between employees
+- Employee work time tracking
 
 ## How to run app:
 
