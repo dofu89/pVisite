@@ -15,13 +15,15 @@ In the project directory:
 
 ## Test User:
 
-username: admin,
-password: admin123
+### username: admin
+### password: admin123
 
 Admin support:
 
 - Create new employee account
 - Create and add client in 'client list'
+
+### [Test Deployed App](https://pvisite-e5e08.web.app/)
 
 ## Build with:
 
@@ -35,3 +37,17 @@ Admin support:
 
 - 100% Responsive Design,
 - Improve UI
+
+### Some screenshots:
+
+<p float="left">
+  <img src="https://github.com/dofu89/pVisite/blob/main/src/screenshots/screenshot.png" width="500" height="300">
+  <img src="https://github.com/dofu89/pVisite/blob/main/src/screenshots/screenshot-1.png" width="500" height="300">
+</p>
+<p float="left">
+ <img src="https://github.com/dofu89/pVisite/blob/main/src/screenshots/screenshot-2.png" width="500" height="300">
+  <img src="https://github.com/dofu89/pVisite/blob/main/src/screenshots/screenshot-3.png" width="500" height="300">
+</p>
+<p float="left">
+  <img src="https://github.com/dofu89/pVisite/blob/main/src/screenshots/screenshot-4.png" width="500" height="300">
+</p>
