@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/history": "^5.0.0",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.20.47",
     "@types/react": "^16.14.24",
@@ -19,6 +20,7 @@
     "@types/react-redux": "^7.1.23",
     "aos": "^2.3.4",
     "dotenv": "^16.0.3",
+    "env-cmd": "^10.1.0",
     "firebase": "^9.6.9",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
@@ -33,7 +35,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:deploy": "env-cmd -f .env npm run build && firebase deploy -P pvisite-e5e08"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
   }
 }
