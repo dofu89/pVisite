@@ -13,12 +13,12 @@ In the project directory:
 
 - `yarn start`,
 
-### [Test Deployed App](https://pvisite-e5e08.web.app/){:target="_blank" rel="noopener"}
-
 ## Test User:
 
-username: admin,
-password: admin123
+### username: admin,
+### password: admin123
+
+### [Test Deployed App](https://pvisite-e5e08.web.app/)
 
 Admin support:
 
