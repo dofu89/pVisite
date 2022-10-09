@@ -13,6 +13,8 @@ In the project directory:
 
 - `yarn start`,
 
+### App is deployed on: [Test Deployed App](https://pvisite-e5e08.web.app/)
+
 ## Test User:
 
 username: admin,
