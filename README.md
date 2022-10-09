@@ -13,7 +13,7 @@ In the project directory:
 
 - `yarn start`,
 
-### [Test Deployed App](https://pvisite-e5e08.web.app/)
+### [Test Deployed App](https://pvisite-e5e08.web.app/){:target="_blank" rel="noopener"}
 
 ## Test User:
 
